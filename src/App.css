@@ -1,0 +1,73 @@
+/* ── Design tokens ────────────────────────────────────────── */
+:root {
+  --bg:        #0c0c0f;
+  --surface:   #111118;
+  --surface-2: #18181f;
+  --surface-3: #1f1f2a;
+
+  --border:    rgba(255, 255, 255, 0.07);
+  --border-hi: rgba(255, 255, 255, 0.13);
+
+  --accent:    #7ee8a2;
+  --accent-dim:rgba(126, 232, 162, 0.12);
+  --accent-2:  #5b8af5;
+  --warn:      #f87171;
+  --gold:      #fbbf24;
+
+  --text:      #eeeef3;
+  --muted:     rgba(238, 238, 243, 0.42);
+  --faint:     rgba(238, 238, 243, 0.16);
+
+  --radius-xs: 6px;
+  --radius-sm: 9px;
+  --radius:    14px;
+  --radius-lg: 20px;
+
+  --font-display: 'Sora', sans-serif;
+  --font-mono:    'DM Mono', monospace;
+}
+
+/* ── Reset ────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { font-size: 16px; }
+
+body {
+  font-family: var(--font-display);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a    { color: inherit; text-decoration: none; }
+button { font-family: var(--font-display); cursor: pointer; }
+input, select, textarea { font-family: var(--font-mono); }
+
+/* ── Scrollbar ────────────────────────────────────────────── */
+::-webkit-scrollbar            { width: 4px; height: 4px; }
+::-webkit-scrollbar-track      { background: transparent; }
+::-webkit-scrollbar-thumb      { background: var(--border-hi); border-radius: 2px; }
+
+/* ── Select option fix ────────────────────────────────────── */
+select option { background: #18181f; color: var(--text); }
+
+/* ── Spinner ──────────────────────────────────────────────── */
+@keyframes ts-spin { to { transform: rotate(360deg); } }
+
+/* ── Page animation ───────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-enter { animation: fadeUp 0.28s ease both; }
+
+/* ── Focus ring ───────────────────────────────────────────── */
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
